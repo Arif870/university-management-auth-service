@@ -1,9 +1,9 @@
 import { Model, Schema, model } from 'mongoose'
-import { User } from './userInterface'
+import { IUser } from './userInterface'
 
-type UserModel = Model<User, object>
+type UserModel = Model<IUser, object>
 
-const userSchema = new Schema<User>({
+const userSchema = new Schema<IUser>({
   id: {
     type: String,
     required: true,
@@ -19,4 +19,6 @@ const userSchema = new Schema<User>({
   },
 })
 
-exports.User = model<User, UserModel>('User', userSchema)
+const User = model<IUser, UserModel>('User', userSchema)
+
+export default User
